@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Product",
+    "description": "Lorem Ipsum",
+    "code": "generated code",
+    "price": 100,
+    "status": true,
+    "stock": 1,
+    "category": "Random"
+  }
+]

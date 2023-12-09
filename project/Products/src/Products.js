@@ -2,7 +2,7 @@ import { Router } from "express";
 import fs from 'fs/promises';
 
 const productsRouter = Router();
-const PRODUCTS_FILE = 'products.json';
+const PRODUCTS_FILE = 'Products/Data/products.json';
 
 async function readProducts() {
     try {

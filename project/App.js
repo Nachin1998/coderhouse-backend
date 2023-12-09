@@ -1,6 +1,6 @@
 import express from "express"
-import cartRouter from "./Carts.js"
-import productsRouter from "./Products.js"
+import cartRouter from "./Carts/src/Carts.js"
+import productsRouter from "./Products/src/Products.js"
 
 const server = express();
 server.use(express.json());
