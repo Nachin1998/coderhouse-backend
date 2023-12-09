@@ -60,22 +60,17 @@ cartRouter.post("/:cartId/products/:productId", (request, response) => {
     if(!requestedCart){
         return response.send("No cart of id " + cartId + " found");
     }
+
+    const productIndex = requestedCart.products.findIndex(item => item.product === parseInt(productId));
     
-    if (requestedCart.products.some(item => item.product === parseInt(productId))) {
-        for (let i = 0; i < requestedCart.products.length; i++) {
-            const element = requestedCart.products[i];
-            
-            if (element.product === parseInt(productId)){
-                element.quantity++;
-                break;
-            }
-        }
+    if(productIndex === -1){
+        requestedCart.products.push({product: parseInt(productId), quantity: 1});
+        response.send("Product not found. Adding new product to cart");
     }
     else{
-        requestedCart.products.push({product: parseInt(productId), quantity: 1});
+        requestedCart.products[productIndex].quantity++;
+        response.send("Updated cart");
     }
-
-    response.send("Updated cart");
 });
 
 export default cartRouter;
